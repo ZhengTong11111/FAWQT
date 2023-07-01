@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/picture_for_begin">
+        <file>picture_for_begin_and_game/background_begin.png</file>
+        <file>picture_for_begin_and_game/buttons_start.png</file>
+        <file>picture_for_begin_and_game/button_music.png</file>
+        <file>picture_for_begin_and_game/button_setting.png</file>
+        <file>picture_for_begin_and_game/button_volumn.png</file>
+    </qresource>
+    <qresource prefix="/picture_for_game">
+        <file>picture_for_begin_and_game/fireboy_static.png</file>
+    </qresource>
+</RCC>
