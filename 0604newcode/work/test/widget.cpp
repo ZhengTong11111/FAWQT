@@ -91,16 +91,16 @@ void Widget::Timeout(){
 }
 //->x轴
 //|y轴
-void Widget::fire_upadd(){//火娃向上蹦
+/*void Widget::fire_upadd(){//火娃向上蹦
     QPointF fire_lefttop;
     QPointF fire_rightdown;//左上右下的位置定住
     fire_lefttop= QPointF(fireboy[0].x(),fireboy[0].y()+height);//新的火娃的左上角就是原火娃的y+高度，x不变
     fire_rightdown=fireboy[0].topRight();//新的火娃的右下角就是 原火娃右上角
     fireboy.insert(0,QRectF(fire_lefttop,fire_rightdown));
-}
-void Widget::fire_delete_last(){
+}*/
+/*void Widget::fire_delete_last(){
     fireboy.removeLast();
-}
+}*/
 void Widget::paintEvent(QPaintEvent *event){
     QPainter painter(this);
     QImageReader reader;

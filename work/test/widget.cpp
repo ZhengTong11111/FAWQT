@@ -95,7 +95,7 @@ void Widget::Timeout(){
 }
 //->x轴
 //|y轴
-void Widget::fire_upadd(){//火娃向上蹦
+/*void Widget::fire_upadd(){//火娃向上蹦
     QPointF fire_lefttop;
     QPointF fire_rightdown;//左上右下的位置定住
     fire_lefttop= QPointF(fireboy[0].x(),fireboy[0].y()+height);//新的火娃的左上角就是原火娃的y+高度，x不变
@@ -125,3 +125,4 @@ void Widget::paintEvent(QPaintEvent *event){
 
 }
 
+*/
