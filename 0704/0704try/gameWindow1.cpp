@@ -18,6 +18,7 @@ gameWindow1::gameWindow1(QWidget* parent) :
     //运行过程
     timer = new QTimer();
     connect(timer, &QTimer::timeout, this, &gameWindow1::timeout);
+    longPress = false;
 
     //主要角色
     fireman = new Man(20,300);
@@ -50,9 +51,11 @@ void gameWindow1::paintEvent (QPaintEvent *event) {
 }
 
 void gameWindow1::timeout() {
+
     fireman->remPreY--;
     if (fireman->remPreY < 0)
         fireman->remPreY = 0;
+
     //检查有没有触及屏障，如果有，则对动作进行初始化
     for (QRect thisBarrier : horiBarrier) {
         if (thisBarrier.intersects(QRect(fireman->curX, fireman->curY, Man::manHeight, Man::manWidth))) {
@@ -61,6 +64,14 @@ void gameWindow1::timeout() {
             fireman->curY = thisBarrier.top() - Man::manHeight;
             //qDebug() << thisBarrier.top() << "\n";
         }
+    }
+
+    //对横向移动进行操作
+    if (!longPress) {
+        fireman->remMoveX--;
+    }
+    if (fireman->remMoveX < 0) {
+        fireman->remMoveX = 0;
     }
 
     fireman->manMove();
@@ -74,17 +85,37 @@ void gameWindow1::keyPressEvent(QKeyEvent *event) {
     switch(event->key())
     {
     case Qt::Key_Up:
-        fireman->speedY = Man::jumpSpeed;
-        fireman->remPreY = Man::iniPreY;
+        if (!event->isAutoRepeat()) {
+            fireman->speedY = Man::jumpSpeed;
+            fireman->remPreY = Man::iniPreY;
+        }
         break;
     case Qt::Key_Left:
         fireman->dirX = MAN_LEFT;
-        fireman->cntMoveX = 0;
+        fireman->remMoveX = Man::timeX;
+        longPress = true;
+        qDebug() << "longPress\n";
         break;
     case Qt::Key_Right:
         fireman->dirX = MAN_RIGHT;
-        fireman->cntMoveX = 0;
+        fireman->remMoveX = Man::timeX;
+        longPress = true;
+        qDebug() << "longPress\n";
         break;
     }
 
+}
+
+void gameWindow1::keyReleaseEvent(QKeyEvent *event) {
+    switch(event->key())
+    {
+    case Qt::Key_Left:
+        longPress = false;
+        qDebug() << "endPress\n";
+        break;
+    case Qt::Key_Right:
+        longPress = false;
+        qDebug() << "endPress\n";
+        break;
+    }
 }
