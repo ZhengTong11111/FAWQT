@@ -19,7 +19,9 @@ public:
     newWindow1(QWidget* parent);
     ~newWindow1();
 
-    void paintEvent(QPaintEvent *event);
+    void paintEvent(QPaintEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
+    
 
     QTimer* timer;
 

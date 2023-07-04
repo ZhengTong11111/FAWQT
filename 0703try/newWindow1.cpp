@@ -6,8 +6,8 @@ newWindow1::newWindow1(QWidget* parent):
     curx = 10;
     cury = 10;
     timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(timeout()));
-    timer->start(1000);
+    connect(timer, &QTimer::timeout, this, &newWindow1::timeout);
+    timer->start(10);
 }
 
 newWindow1::~newWindow1()
@@ -30,17 +30,36 @@ void newWindow1::timeout()
     switch(curDir)
     {
     case UP:
-        cury -= 10;
+        cury -= 5;
         break;
     case DOWN:
-        cury += 10;
+        cury += 5;
         break;
     case LEFT:
-        curx -= 10;
+        curx -= 5;
         break;
     case RIGHT:
-        curx += 10;
+        curx += 5;
         break;
     }
-    //update();
+    update();
+}
+
+void newWindow1::keyPressEvent(QKeyEvent *event)
+{
+    switch(event->key())
+    {
+    case Qt::Key_Up:
+        curDir = UP;
+        break;
+    case Qt::Key_Down:
+        curDir = DOWN;
+        break;
+    case Qt::Key_Left:
+        curDir = LEFT;
+        break;
+    case Qt::Key_Right:
+        curDir = RIGHT;
+        break;
+    }
 }
