@@ -10,8 +10,9 @@
 class Man {
 public:
     static int updateTime;
-    static double stepX;//水平方向步长
-    static int timeX;//每次水平方向移动时间
+    static double accX_Press;//按键状态下加速度
+    static double accX_noPress;//摩擦力状态下水平加速度
+    static double maxSpeedX;//水平方向最大速度
     static double accY;//竖直方向加速度
     static double manHeight;
     static double manWidth;
@@ -22,13 +23,15 @@ public:
     double curX;
     double curY;
 
-    int dirX;
+    double speedX;//水平移动速度，以向右为正
     double speedY;//纵向移动速度，以向下为正
 
-    int remMoveX;//向右运动还剩几次
     int remPreY;//向上跳的保护还剩几次
 
-    bool longPress;
+    bool longPress_right;
+    bool longPress_left;
+
+    bool jumping;//在空中，停止按键操作
 
 
     Man(double iniX, double iniY);

@@ -2,8 +2,9 @@
 
 
 int Man::updateTime = 10;
-double Man::stepX = 5;
-int Man::timeX = 10;
+double Man::accX_Press = 0.1;
+double Man::accX_noPress = 10;
+double Man::maxSpeedX = 10;
 double Man::accY = 0.1;
 double Man::manHeight = 40;
 double Man::manWidth = 30;
@@ -13,26 +14,38 @@ int Man::iniPreY = 5;
 Man::Man(double iniX, double iniY) {
     curX = iniX;
     curY = iniY;
-    dirX = MAN_STILL;
+    speedX = 0;
     speedY = 0;
-    remMoveX = Man::timeX;
     remPreY = 0;
-    longPress = false;
+    longPress_right = false;
+    longPress_left = false;
+    jumping = false;
 }
 
 void Man::manMove() {
     //水平方向移动（看移动次数距离上次按下按键是否足够）
-    if(remMoveX > 0) {
-        //计数工作移动到游戏窗口代码中了
-        //remMoveX--;
-        if (dirX == MAN_RIGHT) {
-            curX += stepX;
-        } else if (dirX == MAN_LEFT) {
-            curX -= stepX;
+    if (longPress_right) {
+        if (speedX <= maxSpeedX) {
+            speedX += accX_Press;
+        }
+    } else if (longPress_left) {
+        if (speedX >= -1 * maxSpeedX) {
+            speedX -= accX_Press;
+        }
+    } else {
+        if (speedX > 0) {
+            speedX -= accX_noPress;
+            if(speedX < 0)
+                speedX = 0;
+        } else if (speedX < 0) {
+            speedX += accX_noPress;
+            if(speedX > 0)
+                speedX = 0;
+        } else {
+            speedX = 0;
         }
     }
-    //else
-    //    remMoveX = 0;
+    curX += speedX;
 
     curY = curY + speedY;
     speedY += accY;
