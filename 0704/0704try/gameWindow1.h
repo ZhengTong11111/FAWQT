@@ -20,12 +20,14 @@ public:
 
     QTimer *timer;
 
-    bool longPress;
 
     Man* fireman;
     Man* icegirl;
-
-    QList<QRect> horiBarrier;
+    
+    QList<QRect> floorBarrier;
+    QList<QRect> ceilingBarrier;
+    QList<QRect> rightBarrier;
+    QList<QRect> leftBarrier;
 
 public slots:
     void timeout();

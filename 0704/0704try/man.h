@@ -28,6 +28,8 @@ public:
     int remMoveX;//向右运动还剩几次
     int remPreY;//向上跳的保护还剩几次
 
+    bool longPress;
+
 
     Man(double iniX, double iniY);
 

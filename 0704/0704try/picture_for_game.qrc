@@ -8,6 +8,7 @@
     </qresource>
     <qresource prefix="/picture_for_game">
         <file>picture_for_begin_and_game/fireboy_static.png</file>
+        <file>picture_for_begin_and_game/icegirl_static.png</file>
     </qresource>
     <qresource prefix="/picture_for_game1">
         <file>picture_for_begin_and_game/background_first.png</file>
