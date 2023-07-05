@@ -14,16 +14,18 @@ gameWindow1::gameWindow1(QWidget* parent) :
 
     //屏障坐标
     floorBarrier.clear();
-    floorBarrier.push_back(QRect(0, 580, 800, 45));
+    floorBarrier.push_back(QRect(0, 580, 800, 5));
+    floorBarrier.push_back(QRect(17, 493, 248, 5));
 
     ceilingBarrier.clear();
-    ceilingBarrier.push_back(QRect(0,0,800,20));
+    ceilingBarrier.push_back(QRect(17, 513, 248, 5));
+
 
     rightBarrier.clear();
-    rightBarrier.push_back(QRect(750, 0, 50, 600));
+
 
     leftBarrier.clear();
-    leftBarrier.push_back(QRect(0, 0, 50, 600));
+    leftBarrier.push_back(QRect(265, 493, 5, 20));
 
     //火池
     allFirePool.push_back(QRect(400, 580, poolWidth, poolHeight));
@@ -114,6 +116,23 @@ void gameWindow1::paintEvent (QPaintEvent *event) {
         painter.drawPixmap(thisPool.left(), thisPool.top(), thisPool.width(), thisPool.height(), greenPool);
     }
 
+    //障碍物指示
+    painter.setPen(Qt::red);
+    for (QRect thisBarrier : floorBarrier) {
+        painter.drawRect(thisBarrier);
+    }
+
+    for (QRect thisBarrier : ceilingBarrier) {
+        painter.drawRect(thisBarrier);
+    }
+
+    for (QRect thisBarrier : leftBarrier) {
+        painter.drawRect(thisBarrier);
+    }
+
+    for (QRect thisBarrier : rightBarrier) {
+        painter.drawRect(thisBarrier);
+    }
 
 }
 
