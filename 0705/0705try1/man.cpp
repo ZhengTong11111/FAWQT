@@ -2,9 +2,9 @@
 
 
 int Man::updateTime = 10;
-double Man::accX_Press = 0.1;
+double Man::accX_Press = 2;
 double Man::accX_noPress = 10;
-double Man::maxSpeedX = 10;
+double Man::maxSpeedX = 5;
 double Man::accY = 0.1;
 double Man::manHeight = 40;
 double Man::manWidth = 30;

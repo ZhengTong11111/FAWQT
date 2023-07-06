@@ -16,6 +16,7 @@ SOURCES += \
     widget.cpp
 
 HEADERS += \
+    barriers.h \
     gameWindow1.h \
     loseWindow.h \
     man.h \

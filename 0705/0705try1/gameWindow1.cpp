@@ -1,5 +1,6 @@
 #include "gameWindow1.h"
 #include "loseWindow.h"
+#include "barriers.h"
 
 #include <QTimer>
 #include <QPainter>
@@ -14,27 +15,35 @@ gameWindow1::gameWindow1(QWidget* parent) :
 
     //屏障坐标
     floorBarrier.clear();
-    floorBarrier.push_back(QRect(0, 580, 800, 5));
-    floorBarrier.push_back(QRect(17, 493, 248, 5));
+    for(int i=0;i<19;i++){
+        floorBarrier.push_back(QRect(myFloor[i][1], myFloor[i][0], myFloor[i][2]-myFloor[i][1], 0));
+    }
 
     ceilingBarrier.clear();
-    ceilingBarrier.push_back(QRect(17, 513, 248, 5));
-
+    for(int i=0;i<19;i++){
+        ceilingBarrier.push_back(QRect(myCeiling[i][1], myCeiling[i][0], myCeiling[i][2]-myCeiling[i][1], 0));
+    }
 
     rightBarrier.clear();
+    for(int i=0;i<19;i++){
+        rightBarrier.push_back(QRect(myRight[i][0], myRight[i][1], 0, myRight[i][2]-myRight[i][1]));
+    }
 
 
     leftBarrier.clear();
-    leftBarrier.push_back(QRect(265, 493, 5, 20));
+    for(int i=0;i<19;i++){
+        leftBarrier.push_back(QRect(myLeft[i][0], myLeft[i][1], 0, myLeft[i][2]-myLeft[i][1]));
+    }
+
 
     //火池
-    allFirePool.push_back(QRect(400, 580, poolWidth, poolHeight));
+    allFirePool.push_back(QRect(370, 575, poolWidth, poolHeight));
 
     //冰池
-    allIcePool.push_back(QRect(500, 580, poolWidth, poolHeight));
+    allIcePool.push_back(QRect(535, 575, poolWidth, poolHeight));
 
     //绿池
-    allGreenPool.push_back(QRect(400, 400, poolWidth, poolHeight));
+    allGreenPool.push_back(QRect(500, 445, poolWidth, poolHeight));
 
 
     //

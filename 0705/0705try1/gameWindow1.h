@@ -5,6 +5,7 @@
 
 #include <QWidget>
 #include "man.h"
+#include "barriers.h"
 #include <QList>
 #include <QRect>
 #include <QKeyEvent>
