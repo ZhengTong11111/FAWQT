@@ -1,6 +1,7 @@
 #include "gameWindow1.h"
 #include "loseWindow.h"
 #include "barriers.h"
+#include "game_over.h"
 
 #include <QTimer>
 #include <QPainter>
@@ -82,8 +83,11 @@ gameWindow1::~gameWindow1() {
 
 void gameWindow1::loseThisGame() {
     timer->stop();
-    loseWindow* lw = new loseWindow(this);
-    lw->show();
+    /*loseWindow* lw = new loseWindow(this);
+    lw->show();*/
+    game_over* go = new game_over(this);
+    go->setWindowFlags(Qt::FramelessWindowHint);
+    go->show();
 }
 
 bool gameWindow1::inPool(QRect man, QRect pool) {

@@ -11,6 +11,8 @@ CONFIG += c++17
 SOURCES += \
     elem.cpp \
     gameWindow1.cpp \
+    game_over.cpp \
+    game_success.cpp \
     loseWindow.cpp \
     main.cpp \
     man.cpp \
@@ -21,6 +23,8 @@ HEADERS += \
     barriers.h \
     elem.h \
     gameWindow1.h \
+    game_over.h \
+    game_success.h \
     loseWindow.h \
     man.h \
     settingbeginning.h \
@@ -28,6 +32,8 @@ HEADERS += \
     widget.h
 
 FORMS += \
+    game_over.ui \
+    game_success.ui \
     settingbeginning.ui \
     widget.ui
 
