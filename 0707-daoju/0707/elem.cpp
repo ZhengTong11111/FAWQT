@@ -12,6 +12,9 @@ double gameButton::buttonHeight2 = 36;
 double lift::liftWidth = 61;
 double lift::liftHeight = 10;
 
+double door::doorWidth = 40;
+double door::doorHeight = 60;
+
 reward::reward (QRect _pos, int _color) {
     pos = _pos;
     color = _color;
@@ -82,6 +85,15 @@ gameButton::gameButton(QRect _pos, int _type) {
     clicked = false;
     pos = _pos;
     type = _type;
+}
+
+door::door(QRect _pos) {
+    pos = _pos;
+    open = false;
+}
+
+door::door() {
+
 }
 
 /*liftButton::liftButton(QRect _pos, lift& _operLift) :

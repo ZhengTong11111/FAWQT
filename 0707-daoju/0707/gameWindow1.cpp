@@ -2,6 +2,7 @@
 #include "loseWindow.h"
 #include "barriers.h"
 #include "game_over.h"
+#include "game_success.h"
 
 #include <QTimer>
 #include <QPainter>
@@ -36,6 +37,10 @@ gameWindow1::gameWindow1(QWidget* parent) :
         leftBarrier.push_back(QRect(myLeft[i][0], myLeft[i][1], 0, myLeft[i][2]-myLeft[i][1]));
     }
 
+    //石头
+    QRect stonePos(120, 210 - stoneHeight, stoneWidth, stoneHeight);
+    leftBarrier.push_back(stonePos);
+    floorBarrier.push_back(stonePos);
 
     //火池
     allFirePool.push_back(QRect(370, 575, poolWidth, poolHeight));
@@ -47,7 +52,10 @@ gameWindow1::gameWindow1(QWidget* parent) :
     allGreenPool.push_back(QRect(500, 445, poolWidth, poolHeight));
 
     //红奖励
-    allRewards.push_back(reward(QRect(450, 550, reward::rewardWidth, reward::rewardHeight), RED_REWARD));
+    allRewards.push_back(reward(QRect(410, 550, reward::rewardWidth, reward::rewardHeight), RED_REWARD));
+
+    //蓝奖励
+    allRewards.push_back(reward(QRect(575, 550, reward::rewardWidth, reward::rewardHeight), BLUE_REWARD));
 
     //竖直电梯与其控制
     //按钮
@@ -71,20 +79,20 @@ gameWindow1::gameWindow1(QWidget* parent) :
                            LIFT_HORI));
     allLift[1].allButtonControllingThis.push_back((allButton[2]));
 
+    //门
+    redDoor = door(QRect(600, 101 - door::doorHeight, door::doorWidth, door::doorHeight));
+    blueDoor = door(QRect(700, 101 - door::doorHeight, door::doorWidth, door::doorHeight));
 
     //运行过程
     timer = new QTimer();
     connect(timer, &QTimer::timeout, this, &gameWindow1::timeout);
 
     //主要角色
-    fireman = new Man(200, 350);
-    icegirl = new Man(300, 350);
+    fireman = new Man(400, 150);
+    icegirl = new Man(500, 150);
 
     //开始游戏
     timer->start(Man::updateTime);
-
-
-
 
 }
 
@@ -92,6 +100,13 @@ gameWindow1::~gameWindow1() {
     delete timer;
     delete fireman;
     delete icegirl;
+}
+
+void gameWindow1::winThisGame() {
+    timer->stop();
+    game_success* gs = new game_success(this);
+    gs->setWindowFlags(Qt::FramelessWindowHint);
+    gs->show();
 }
 
 void gameWindow1::loseThisGame() {
@@ -193,6 +208,27 @@ void gameWindow1::paintEvent (QPaintEvent *event) {
     liftPurple.load(":/props/picture_for_begin_and_game/lift_purple.png");
     for (lift thisLift : allLift) {
         painter.drawPixmap(thisLift.curpos, liftPurple);
+    }
+
+    //绘制门
+    QPixmap pRedDoorClose;
+    QPixmap pRedDoorOpen;
+    QPixmap pBlueDoorClose;
+    QPixmap pBlueDoorOpen;
+    pRedDoorClose.load(":/props/picture_for_begin_and_game/door_red_close.png");
+    pRedDoorOpen.load(":/props/picture_for_begin_and_game/door_red_open.png");
+    pBlueDoorClose.load(":/props/picture_for_begin_and_game/door_blue_close.png");
+    pBlueDoorOpen.load(":/props/picture_for_begin_and_game/door_blue_open.png");
+    if (redDoor.open) {
+        painter.drawPixmap(redDoor.pos, pRedDoorOpen);
+    } else {
+        painter.drawPixmap(redDoor.pos, pRedDoorClose);
+    }
+
+    if (blueDoor.open) {
+        painter.drawPixmap(blueDoor.pos, pBlueDoorOpen);
+    } else {
+        painter.drawPixmap(blueDoor.pos, pBlueDoorClose);
     }
 
     //障碍物指示
@@ -363,18 +399,36 @@ void gameWindow1::timeout() {
                 //红色奖励
                 if (thisReward.pos.intersects(fireman->posRect())) {
                     thisReward.gotten = true;
+                    fireman->getRewards++;
                 }
             } else if (thisReward.color == BLUE_REWARD) {
                 //蓝色奖励
                 if (thisReward.pos.intersects(icegirl->posRect())) {
                     thisReward.gotten = true;
+                    icegirl->getRewards++;
                 }
             }
         }
     }
 
+    //门检测
+    if (redDoor.pos.intersects(fireman->posRect())) {
+        redDoor.open = true;
+    } else {
+        redDoor.open = false;
+    }
+
+    if (blueDoor.pos.intersects(icegirl->posRect())) {
+        blueDoor.open = true;
+    } else {
+        blueDoor.open = false;
+    }
 
     update();
+
+    if (blueDoor.open and redDoor.open) {
+        winThisGame();
+    }
 }
 
 

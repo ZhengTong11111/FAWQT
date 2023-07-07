@@ -14,6 +14,9 @@
 const int poolWidth = 100;
 const int poolHeight = 20;
 
+const int stoneWidth = 30;
+const int stoneHeight = 30;
+
 class gameWindow1 : public QWidget {
 public:
     gameWindow1(QWidget* parent);
@@ -44,11 +47,13 @@ public:
     QList<lift> allLift;
     QList<gameButton*> allButton;
 
+    door redDoor;
+    door blueDoor;
+
     void loseThisGame();
+    void winThisGame();
 
     bool inPool(QRect man, QRect pool);
-
-
 
 public slots:
     void timeout();

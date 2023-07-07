@@ -55,6 +55,16 @@ public:
     static double liftHeight;
 };
 
+class door {
+public:
+    static double doorWidth;
+    static double doorHeight;
+    bool open;
+    QRect pos;
+    door(QRect _pos);
+    door();
+};
+
 /*class liftButton : public gameButton{
 public:
     lift& operLift;

@@ -52,5 +52,7 @@ public:
 
     int pullButton();
 
+    int getRewards;
+
 };
 

@@ -22,6 +22,7 @@ Man::Man(double iniX, double iniY) {
     jumping = false;
     relaToButton_cur = 0;
     relaToButton_pre = 0;
+    getRewards = 0;
 }
 
 int Man::pullButton() {

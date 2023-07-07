@@ -1,11 +1,13 @@
 #include "game_success.h"
 #include "ui_game_success.h"
+#include "widget.h"
 
 game_success::game_success(QWidget *parent,QWidget *main_widget) :
     QDialog(parent),
     ui(new Ui::game_success),main_table(main_widget)
 {
     ui->setupUi(this);
+    parentWindow = parent;
 }
 
 game_success::~game_success()
@@ -30,5 +32,7 @@ void game_success::on_backButton_clicked()//童哥请在粘贴的时候在game o
 {
     main_table->show();
     this->close();
+    Widget *w = new Widget(nullptr);
+    w->show();
 }
 

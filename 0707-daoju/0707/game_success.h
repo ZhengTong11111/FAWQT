@@ -2,6 +2,7 @@
 #define GAME_SUCCESS_H
 
 #include <QDialog>
+#include <QWidget>
 
 namespace Ui {
 class game_success;
@@ -14,6 +15,8 @@ class game_success : public QDialog
 public:
     explicit game_success(QWidget *parent = nullptr,QWidget *main_widget = nullptr);
     ~game_success();
+
+    QWidget* parentWindow;
 
 private slots:
     void on_backButton_clicked();
