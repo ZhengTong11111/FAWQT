@@ -30,5 +30,6 @@ void game_success::on_backButton_clicked()//童哥请在粘贴的时候在game o
 {
     main_table->show();
     this->close();
+
 }
 

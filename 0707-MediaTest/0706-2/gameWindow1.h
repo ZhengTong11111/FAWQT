@@ -10,6 +10,7 @@
 
 #include "man.h"
 #include "elem.h"
+#include "music.h"
 
 const int poolWidth = 100;
 const int poolHeight = 20;
@@ -43,6 +44,8 @@ public:
 
     QList<lift> allLift;
     QList<gameButton*> allButton;
+
+
 
     void loseThisGame();
 

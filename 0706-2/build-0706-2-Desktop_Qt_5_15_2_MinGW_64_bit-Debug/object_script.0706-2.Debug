@@ -5,6 +5,7 @@ debug/game_success.o
 debug/loseWindow.o
 debug/main.o
 debug/man.o
+debug/music.o
 debug/settingbeginning.o
 debug/widget.o
 debug/qrc_picture_for_game.o

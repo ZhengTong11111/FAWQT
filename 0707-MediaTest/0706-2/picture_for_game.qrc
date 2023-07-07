@@ -27,4 +27,7 @@
         <file>picture_for_begin_and_game/button_purple.png</file>
         <file>picture_for_begin_and_game/lift_purple.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>music/LevelMusic.mp3</file>
+    </qresource>
 </RCC>

@@ -11,6 +11,8 @@
 #include <QDialog>
 #include <iostream>
 #include <QtCore/QPropertyAnimation>
+#include "music.h"
+
 
 #include "settingbeginning.h"
 
@@ -35,5 +37,7 @@ private slots:
 
 private:
     Ui::Widget *ui;
+    Music m;
+
 };
 #endif // WIDGET_H

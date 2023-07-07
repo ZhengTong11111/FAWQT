@@ -1,0 +1,12 @@
+debug/game_over.o
+debug/game_success.o
+debug/main.o
+debug/settingbeginning.o
+debug/suspend.o
+debug/widget.o
+debug/qrc_picture_for_game.o
+debug/moc_game_over.o
+debug/moc_game_success.o
+debug/moc_settingbeginning.o
+debug/moc_suspend.o
+debug/moc_widget.o

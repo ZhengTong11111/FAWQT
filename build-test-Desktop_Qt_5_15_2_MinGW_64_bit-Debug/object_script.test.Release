@@ -1,0 +1,12 @@
+release/game_over.o
+release/game_success.o
+release/main.o
+release/settingbeginning.o
+release/suspend.o
+release/widget.o
+release/qrc_picture_for_game.o
+release/moc_game_over.o
+release/moc_game_success.o
+release/moc_settingbeginning.o
+release/moc_suspend.o
+release/moc_widget.o

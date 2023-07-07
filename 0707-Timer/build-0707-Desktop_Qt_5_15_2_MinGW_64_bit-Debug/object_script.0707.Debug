@@ -1,0 +1,14 @@
+debug/elem.o
+debug/gameWindow1.o
+debug/game_over.o
+debug/game_success.o
+debug/loseWindow.o
+debug/main.o
+debug/man.o
+debug/settingbeginning.o
+debug/widget.o
+debug/qrc_picture_for_game.o
+debug/moc_game_over.o
+debug/moc_game_success.o
+debug/moc_settingbeginning.o
+debug/moc_widget.o

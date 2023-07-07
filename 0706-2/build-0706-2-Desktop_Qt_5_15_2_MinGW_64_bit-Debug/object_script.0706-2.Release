@@ -5,6 +5,7 @@ release/game_success.o
 release/loseWindow.o
 release/main.o
 release/man.o
+release/music.o
 release/settingbeginning.o
 release/widget.o
 release/qrc_picture_for_game.o

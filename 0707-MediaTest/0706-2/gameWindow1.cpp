@@ -8,11 +8,13 @@
 #include <QDebug>
 #include <cmath>
 
+
 gameWindow1::gameWindow1(QWidget* parent) :
     QWidget(parent)
 {
     //窗口大小
     setFixedSize(800, 600);
+
 
     //屏障坐标
     floorBarrier.clear();

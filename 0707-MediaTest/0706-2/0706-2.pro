@@ -1,5 +1,9 @@
 QT       += core gui
 
+
+#add
+QT       += multimedia
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
@@ -16,6 +20,7 @@ SOURCES += \
     loseWindow.cpp \
     main.cpp \
     man.cpp \
+    music.cpp \
     settingbeginning.cpp \
     widget.cpp
 
@@ -27,6 +32,7 @@ HEADERS += \
     game_success.h \
     loseWindow.h \
     man.h \
+    music.h \
     settingbeginning.h \
     ui_widget.h \
     widget.h

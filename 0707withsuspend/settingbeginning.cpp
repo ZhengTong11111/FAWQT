@@ -6,6 +6,9 @@ settingBeginning::settingBeginning(QWidget *parent) :
     ui(new Ui::settingBeginning)
 {
     ui->setupUi(this);
+    //设置滑动条
+    ui->horizontalSlider->setStyleSheet("background-color: gray; border: 0px solid black;");
+    ui->Volumelabel->setStyleSheet("background-color: gray; border: 0px solid black;");
     //设置音乐图片
     if(is_the_musicfirst_pic==true){
         QPixmap music_on_image(":/picture_for_begin/picture_for_begin_and_game/button_music.png");
