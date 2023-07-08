@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>MenuMusic.mp3</file>
+        <file>LevelMusic.mp3</file>
+        <file>Platform.mp3</file>
+        <file>Diamond.mp3</file>
+        <file>Jump_wg.mp3</file>
+        <file>Door.mp3</file>
+        <file>Jump_fb.mp3</file>
+        <file>Death.mp3</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,16 @@
+release/elem.o
+release/gameWindow1.o
+release/game_over.o
+release/game_success.o
+release/loseWindow.o
+release/main.o
+release/mainbgm.o
+release/man.o
+release/mytimer.o
+release/settingbeginning.o
+release/widget.o
+release/qrc_picture_for_game.o
+release/moc_game_over.o
+release/moc_game_success.o
+release/moc_settingbeginning.o
+release/moc_widget.o

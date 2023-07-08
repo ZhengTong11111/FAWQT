@@ -139,7 +139,8 @@ void gameWindow1::setTimer(){
 }
 void gameWindow1::winThisGame() {
     timer->stop();
-    game_success* gs = new game_success(this, fireman->getRewards, icegirl->getRewards);
+    tGame->stop();
+    game_success* gs = new game_success(this, fireman->getRewards, icegirl->getRewards,t-1);
     gs->setWindowFlags(Qt::FramelessWindowHint);
     gs->show();
     //this->close();
@@ -147,6 +148,7 @@ void gameWindow1::winThisGame() {
 
 void gameWindow1::loseThisGame() {
     timer->stop();
+    tGame->stop();
     /*loseWindow* lw = new loseWindow(this);
     lw->show();*/
     game_over* go = new game_over(this);

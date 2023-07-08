@@ -3,7 +3,7 @@
 #include "widget.h"
 #include <QString>
 
-game_success::game_success(QWidget *parent/*,QWidget *main_widget*/, int _redReward, int _blueReward) :
+game_success::game_success(QWidget *parent/*,QWidget *main_widget*/, int _redReward, int _blueReward,int _successTime) :
     QDialog(parent),
     ui(new Ui::game_success)//,main_table(main_widget)
 {
@@ -11,6 +11,7 @@ game_success::game_success(QWidget *parent/*,QWidget *main_widget*/, int _redRew
     parentWindow = parent;
     redReward = _redReward;
     blueReward = _blueReward;
+    successTime=_successTime;
 }
 
 game_success::~game_success()
@@ -44,6 +45,7 @@ void game_success::paintEvent (QPaintEvent* event) {
             textRed = tmpstr + textRed;
         }
     }
+    painter.setFont(QFont("Arial",12));
     painter.drawText(170, 95 ,textRed);
 
     QString textBlue = "";
@@ -58,6 +60,11 @@ void game_success::paintEvent (QPaintEvent* event) {
         }
     }
     painter.drawText(170, 140 ,textBlue);
+
+    int minutes = successTime / 60;
+    int seconds = successTime % 60;
+    QString timeStr = QString("%1:%2").arg(minutes).arg(seconds, 2, 10, QChar('0'));
+    painter.drawText(200, 185 ,timeStr);
 }
 
 void game_success::on_backButton_clicked()//童哥请在粘贴的时候在game over的时候加一句
