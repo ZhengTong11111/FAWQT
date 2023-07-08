@@ -1,0 +1,51 @@
+<RCC>
+    <qresource prefix="/picture_for_begin">
+        <file>picture_for_begin_and_game/background_begin.png</file>
+        <file>picture_for_begin_and_game/buttons_start.png</file>
+        <file>picture_for_begin_and_game/button_music.png</file>
+        <file>picture_for_begin_and_game/button_setting.png</file>
+        <file>picture_for_begin_and_game/button_volumn.png</file>
+        <file>picture_for_begin_and_game/setting_beginning.png</file>
+        <file>picture_for_begin_and_game/total_transparent.png</file>
+        <file>picture_for_begin_and_game/button_background.png</file>
+        <file>picture_for_begin_and_game/button_music_off.png</file>
+        <file>picture_for_begin_and_game/button_volumn_off.png</file>
+        <file>picture_for_begin_and_game/game_success.png</file>
+    </qresource>
+    <qresource prefix="/picture_for_game">
+        <file>picture_for_begin_and_game/fireboy_static.png</file>
+        <file>picture_for_begin_and_game/icegirl_static.png</file>
+    </qresource>
+    <qresource prefix="/picture_for_game1">
+        <file>picture_for_begin_and_game/background_first.png</file>
+    </qresource>
+    <qresource prefix="/props">
+        <file>picture_for_begin_and_game/firepool.png</file>
+        <file>picture_for_begin_and_game/greenpool.png</file>
+        <file>picture_for_begin_and_game/icepool.png</file>
+        <file>picture_for_begin_and_game/reward_blue.png</file>
+        <file>picture_for_begin_and_game/reward_red.png</file>
+        <file>picture_for_begin_and_game/button_purple.png</file>
+        <file>picture_for_begin_and_game/lift_purple.png</file>
+        <file>picture_for_begin_and_game/buttons_switch_close.png</file>
+        <file>picture_for_begin_and_game/buttons_switch_open.png</file>
+        <file>picture_for_begin_and_game/door_blue_close.png</file>
+        <file>picture_for_begin_and_game/door_blue_open.png</file>
+        <file>picture_for_begin_and_game/door_red_close.png</file>
+        <file>picture_for_begin_and_game/door_red_open.png</file>
+        <file>picture_for_begin_and_game/stone.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>Timer_Pic/0.png</file>
+        <file>Timer_Pic/1.png</file>
+        <file>Timer_Pic/2.png</file>
+        <file>Timer_Pic/3.png</file>
+        <file>Timer_Pic/4.png</file>
+        <file>Timer_Pic/5.png</file>
+        <file>Timer_Pic/6.png</file>
+        <file>Timer_Pic/7.png</file>
+        <file>Timer_Pic/8.png</file>
+        <file>Timer_Pic/9.png</file>
+        <file>Timer_Pic/colon.png</file>
+    </qresource>
+</RCC>
